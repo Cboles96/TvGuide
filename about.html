@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <script src="tv_guide.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <title>TV Guide | About</title>
+</head>
+<body>
+  <div class="site-container">
+    <header class="site-header">
+        <div id="nav-bar" class="container">
+        <div class="text-center" id="tv-guide">
+            <h1><img src="images/tv_image2.png">TV Guide</h1>
+            <p><span class="float-right"id="date"></span></p>
+        </div>
+        <nav class="text-center">
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="index.html">Home</a></li>
+                <li id="current" class="list-inline-item"><a href="about.html">About</a></li>
+                <li class="list-inline-item"><a href="search.html">Search</a></li>
+            </ul>
+        </nav>
+        </div>
+    </header>
+<main class="site-content">
+   <section>
+
+    <hr>
+    
+     <div id="about">
+        <h2>Purpose</h2>
+        <div>
+            <p>The purpose of this application is to accept user input and return information about a TV Show or Movie.  
+                Information such as the official title, plot, release date, and rating.</p>
+        </div>  
+     </div>
+   </section>
+
+    <hr>
+
+    <div class="wrapper">
+        <h1>Popular Search Results:</h1>
+        <ul id='image_list'>
+            <li><a href="images/breaking_bad.jpg" title="Breaking Bad" id="first_link">
+            <img src="thumbnails/thumbnail1.jpg" alt=""></a></li>
+
+            <li><a href="images/stranger_things.jpg" title="Stranger Things">
+            <img src="thumbnails/thumbnail3.jpg" alt=""></a></li>
+
+            <li><a href="images/game_of_thrones.jpg" title="Game of Thrones">
+            <img src="thumbnails/thumbnail2.jpg" alt=""></a></li>
+
+            <li><a href="images/joker.jpg" title="Joker">
+            <img src="thumbnails/thumbnail4.jpg" alt=""></a></li>
+
+            <li><a href="images/avengers_endgame.jpg" title="Avengers: EndGame">
+            <img src="thumbnails/thumbnail5.jpg" alt=""></a></li>
+        </ul>
+    </div>
+
+    <div class="picture">
+        <p><img src="images/breaking_bad.jpg" alt="" id="image"></p>
+        <h2 id="caption">Breaking Bad</h2>
+    </div>
+</main>
+
+<hr>
+
+<footer class="site-footer">
+    <hr>
+    <section>
+        <p id="copyright">TV Guide Copyright &copy; 2019</p>
+    </section>
+</footer>
+</div>
+</body>
+<script>
+$(document).ready(function(){
+    $('#image_list a').each(function(){
+        var swappedImage = new Image();
+        swappedImage.src = $(this).attr("href");
+    });
+
+    $('#image_list a').hover(function(evt){
+        $(this).stop(true).animate({ top: 15 }, 'fast');
+
+        var imageURL = $(this).attr("href");
+        $('#image').attr('src', imageURL);
+
+        var caption = $(this).attr('title');
+        $('#caption').text(caption);
+
+        evt.preventDefault();
+    }, function(evt){
+        $(this).stop(true).animate({ top: 0 }, 'fast');
+    });
+})
+</script>
+</html>

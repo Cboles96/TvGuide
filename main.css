@@ -1,0 +1,212 @@
+.site-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-content {
+    flex: 1;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #e2e0e0;
+}
+
+/* Header */
+
+header h1 {
+    color: #f4f4f4;
+    font-size: 45px;
+}
+
+header a {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+header #nav-bar {
+    width: 500px;
+    border-radius: 25px;
+    background: #2c2828;
+}
+
+#tv-guide {
+    margin: 1em;
+    padding-top: 25px;
+}
+
+header #current {
+    font-weight: bold;
+}
+
+header li :hover {
+    color: #a0a2a5;
+}
+
+header #date {
+    font-size: 25px;
+    color: #ffffff;
+}
+
+#accept {
+    color: #f4f4f4;
+}
+
+/* Home */
+
+main #sign-up {
+    border-radius: 15px;
+    background-color: #2c2828;
+}
+
+main h3, label {
+    color: #ffffff;
+}
+
+#submit_info {
+    border-radius: 12px;
+}
+
+#submission {
+    background: #2c2828;
+    color: #f4f4f4;
+    width: 300px;
+    border-radius: 12px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* About */
+
+#about {
+    border-radius: 30px;
+    background: #2c2828;
+    margin: 0 auto;
+    width: 50%;
+}
+
+#about h2, p {
+    color: #f4f4f4;
+    text-decoration: bold;
+    text-align: center;
+}
+
+section {
+    padding: 15px, 25px;
+}
+
+ul {
+    padding-left: 45px;
+}
+
+li {
+    padding-bottom: .25em;
+}
+
+.wrapper {
+    border-radius: 30px;
+    background: #2c2828;
+    width: 500px;
+    height: 125px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.wrapper h1 {
+    color: #f4f4f4;
+}
+
+#image_list {
+    margin-right: 30px;
+}
+
+li {
+	padding-right: 10px;
+	display: inline;
+}
+
+a { 
+    position: relative; 
+}
+
+.picture {
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: #2c2828;
+    border-radius: 30px;
+    width: 800px;
+    height: 525px;
+}
+
+.picture #caption {
+    text-align: center;
+    color: #f4f4f4;
+}
+
+.picture #image {
+    padding-top: 50px;
+    padding-left: 10px;
+}
+
+/* Search */
+
+#search {
+    border-radius: 15px;
+}
+
+#search-input, #button-1, #clear {
+    border-radius: 12px;
+    margin-top: 12px;
+}
+
+.page-results {
+    background: #2c2828;
+}
+
+#results {
+    color: #f4f4f4;
+}
+
+div #field {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#search {
+    margin: 0 auto;
+    width: 400px;
+    height: 50px;
+    background-color: #2c2828;
+}
+
+#top, #bottom {
+    width: 200px;
+    margin: 0 auto;
+    border-radius: 12px;
+    text-align: center;
+    background-color: #2c2828;
+}
+
+#jump-bottom, #jump-top {
+    color: #f4f4f4;
+}
+
+/* Footer */
+
+footer p {
+    color: black;
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .picture {
+        width: 450px;
+        height: 350px;
+    }
+
+    #image {
+        padding-right: 125px;
+        width: 500px;
+    }
+}

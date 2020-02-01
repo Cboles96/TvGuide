@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <script src="tv_guide.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>TV Guide | Search</title>
+</head>
+<body>
+  <div class="site-container">
+    <header class="site-header">
+        <div id="nav-bar" class="container">
+        <div class="text-center" id="tv-guide">
+            <h1><img src="images/tv_image2.png">TV Guide</h1>
+            <p><span class="float-right"id="date"></span></p>
+        </div>
+        <nav class="text-center">
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="index.html">Home</a></li>
+                <li class="list-inline-item"><a href="about.html">About</a></li>
+                <li id="current" class="list-inline-item"><a href="search.html">Search</a></li>
+            </ul>
+        </nav>
+        </div>
+    </header>
+<main class="site-content">
+    <div id="search" class="text-center">
+        <input type="text" id="search-input" placeholder="Enter title">
+        <button type="submit" id="button-1">Search</button>
+        <button type="button" id="clear" onClick="window.location.reload();">Clear</button>
+    </div>
+
+    <hr>
+
+    <div id="top">
+        <a href="#bottom" id="jump-bottom">Jump to bottom</a>
+    </div>
+
+    <hr>
+
+    <div class="page-results">
+        <div id="results" class="container">
+            <p id="field" class="text-center"></p>
+        </div>
+    </div>
+</main>
+
+<hr>
+
+<footer class="site-footer">
+    <div id="bottom">
+        <a href="#top" id="jump-top">Jump to top</a>
+    </div>
+
+    <hr>
+
+    <section>
+        <p>TV Guide Copyright &copy; 2019</p>
+    </section>
+</footer>
+</div>
+</body>
+<script>
+
+$(document).ready(function(){
+
+    $('#top').hide();
+    $('#bottom').hide();
+
+    $('#button-1').click(function(){
+        var textInfo = $('#search-input').val();
+        var data = $('#field').serialize();
+
+        $('#top').show();
+        $('#bottom').show();
+
+        $.ajax({
+            url: "http://www.omdbapi.com/?t=" + textInfo + "&apikey=cadd2c49",
+            type: 'GET',
+            data: data,
+            success: function(response) {
+                var res = JSON.parse(JSON.stringify(response));
+
+                var img = "\"" + res.Poster + "\"";
+            
+                $('#field').append('<div class =\'container\'>' + res.Title + '<br>' + 
+                    '<img src=' + img + '>' + '<br><br>' + 'Plot: ' + '<br>' + res.Plot + 
+                    '<br><br>' +  'Actors: ' + res.Actors + '<br><br>' + 'Director: ' + res.Director +  
+                    '<br><br>' + 'Release Date: ' + res.Released + '<br>' + 'Runtime: ' + res.Runtime + 
+                    '<br>' + 'Seasons: ' + res.totalSeasons + '<br><br>' + 'Rated: ' + res.Rated +
+                    '<br>' + 'IMDB Rating: ' + res.imdbRating + '<br><br>');
+            }
+        })
+    });
+});
+</script>
+</html>
